@@ -26,6 +26,7 @@ void * menu(void *mmn){
 		}
 		system("clear");
 		if(hplo<=0 || hplo>100 || hpkep<=0 || hpkep>100){
+			system("clear");
 			printf("\n\tGAME OVER\nPELIHARAAN ANDA ADA YANG MATI\n");
 			exit(EXIT_SUCCESS);
 		}
@@ -45,6 +46,7 @@ void* lohan(void *arg){
 		printf("\n1. Berimakan lohan\n");
 		printf("2. Berimakan kepiting\n");
 		if(hplo<=0 || hplo>100 || hpkep<=0 || hpkep>100){
+			system("clear");
 			printf("\n\tGAME OVER\nPELIHARAAN ANDA ADA YANG MATI\n");
 			exit(EXIT_SUCCESS);
 		}
@@ -65,6 +67,7 @@ void* kepiting(void *arr){
 		printf("\n1. Berimakan lohan\n");
 		printf("2. Berimakan kepiting\n");
 		if(hplo<=0 || hplo>100 || hpkep<=0 || hpkep>100){
+			system("clear");
 			printf("\n\tGAME OVER\nPELIHARAAN ANDA ADA YANG MATI\n");
 			exit(EXIT_SUCCESS);
 		}
