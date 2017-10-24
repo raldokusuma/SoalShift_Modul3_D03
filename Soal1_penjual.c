@@ -8,7 +8,7 @@
 
 int *weapon[7];
 
-pthread_t tid1,tid2;
+pthread_t tid1;
 
 
 void *menu(void *argv){
@@ -24,12 +24,13 @@ void *menu(void *argv){
 		if(choice == 1){
 			system("clear");
 			printf("STOCK SENJATA\n\n");
-			printf("MP4A1 %d\n",*weapon[1]);
-			printf("PM2-V1 %d\n",*weapon[2]);
-			printf("SPR-3 %d\n",*weapon[3]);
-			printf("SS2-V5 %d\n",*weapon[4]);
-			printf("SPG1-V3 %d\n",*weapon[5]);
-			printf("MINE %d\n",*weapon[6]);
+
+			if(*weapon[1]>0) printf("MP4A1 %d\n",*weapon[1]);
+			if(*weapon[2]>0) printf("PM2-V1 %d\n",*weapon[2]);
+			if(*weapon[3]>0) printf("SPR-3 %d\n",*weapon[3]);
+			if(*weapon[4]>0) printf("SS2-V5 %d\n",*weapon[4]);
+			if(*weapon[5]>0) printf("SPG1-V3 %d\n",*weapon[5]);
+			if(*weapon[6]>0) printf("MINE %d\n",*weapon[6]);
 			sleep(4);
 		}
 		else if(choice == 2){
