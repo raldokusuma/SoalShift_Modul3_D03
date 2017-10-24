@@ -60,13 +60,13 @@ void * first(void *aww){
 			system("clear");
 			printf("%s Menebak di Lubang = ", play2);
 			scanf("%d %d %d %d",&d,&e,&f,&g);
-			if(lub1[d]==1) poin2+=1;
+			if(lub1[d]==1) {poin2+=1; lub1[d]= -1;}
 			if(lub1[d]==0) poin1+=1;
-			if(lub1[e]==1) poin2+=1;
+			if(lub1[e]==1) {poin2+=1; lub1[e]= -1;}
 			if(lub1[e]==0) poin1+=1;
-			if(lub1[f]==1) poin2+=1;
+			if(lub1[f]==1) {poin2+=1; lub1[f]= -1;}
 			if(lub1[f]==0) poin1+=1;
-			if(lub1[g]==1) poin2+=1;
+			if(lub1[g]==1) {poin2+=1; lub1[g]= -1;}
 			if(lub1[g]==0) poin1+=1;
 			stat1=0;
 			stat2=1;
@@ -123,13 +123,13 @@ void * sec(void *arr){
 			system("clear");
 			printf("%s Menebak di Lubang = ", play1);
 			scanf("%d %d %d %d",&d,&e,&f,&g);
-			if(lub2[d]==1) poin1+=1;
+			if(lub2[d]==1) {poin1+=1; lub2[d]=-1;}
 			if(lub2[d]==0) poin2+=1;
-			if(lub2[e]==1) poin1+=1;
+			if(lub2[e]==1) {poin1+=1; lub2[e]=-1;}
 			if(lub2[e]==0) poin2+=1;
-			if(lub2[f]==1) poin1+=1;
+			if(lub2[f]==1) {poin1+=1; lub2[f]=-1;}
 			if(lub2[f]==0) poin2+=1;
-			if(lub2[g]==1) poin1+=1;
+			if(lub2[g]==1) {poin1+=1; lub2[g]=-1;}
 			if(lub2[g]==0) poin2+=1;
 		stat1=1;
 		stat2=0;
