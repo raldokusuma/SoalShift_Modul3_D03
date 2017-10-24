@@ -8,10 +8,11 @@
 
 int *weapon[7];
 
-pthread_t tid1;
+pthread_t tid2;
 
 
 void *menu(void *argv){
+
 	int choice;
 	int jml;
 	char sjt[15];
@@ -31,7 +32,7 @@ void *menu(void *argv){
 			if(*weapon[4]>0) printf("SS2-V5 %d\n",*weapon[4]);
 			if(*weapon[5]>0) printf("SPG1-V3 %d\n",*weapon[5]);
 			if(*weapon[6]>0) printf("MINE %d\n",*weapon[6]);
-			sleep(4);
+			sleep(2);
 		}
 		else if(choice == 2){
 			printf("Masukkan nama senjata dan jumlah yang ditambah :\n");
@@ -54,7 +55,10 @@ void *menu(void *argv){
 			else if((strcmp(sjt,"MINE") == 0)){
 				*weapon[6]+=jml;
 			}
-			else printf("Senjata Tidak Ditemukan\n");
+			else {
+				printf("Senjata Tidak Ditemukan\n");
+				sleep(1);
+			}
 		}
 	}
 	return NULL;
@@ -62,9 +66,10 @@ void *menu(void *argv){
 
 int main(){
 	int i=0;
+	//memset(*weapon, 0,sizeof(*weapon));
 	system("clear");
 	key_t key[7];
-	for(i=0;i<=7;i++) {key[i]=i+20;}
+	for(i=0;i<=7;i++) {key[i]=i+100;}
 
 	int shmid[7];
 	for(i=0;i<=7;i++){
@@ -74,11 +79,12 @@ int main(){
 	weapon[i] = shmat(shmid[i], NULL, 0);
 	}
 
-	memset(*weapon, 0,sizeof(*weapon));
-    pthread_create(&(tid1), NULL, &menu, NULL);
+
+    pthread_create(&(tid2), NULL, &menu, NULL);
+    pthread_join(tid2, NULL);
 
 	shmdt(weapon);
+
 	for(i=0;i<=7;i++) shmctl(shmid[i], IPC_RMID, NULL);
 
-    pthread_join(tid1, NULL);
 }
