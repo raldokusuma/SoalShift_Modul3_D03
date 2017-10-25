@@ -13,12 +13,15 @@ char seek[1000];
 int stat1=0;
 void *cari(void * azz){
 	FILE *f;
-	char c[512];	
+	char c[1000];	
 	int jml=0;
+	char *hmm;
 	f = fopen ("./Novel.txt", "r");
-	while(fgets(c,512,f) != NULL){
-		if(strcmp(c,kata[j]) != 1){
-			jml++;
+	while(fgets(c,1000,f) != NULL){
+		hmm=strtok(c," ,.");
+		while(hmm != NULL){
+			if(strstr(hmm,kata[j]) != NULL)jml++;
+				hmm=strtok(NULL," ,.");
 		}
 	}
 
