@@ -10,11 +10,19 @@ int status=0;
 int j=1;
 char *kata[100];
 char seek[1000];
+int stat1=0;
 void *cari(void * azz){
-	int c;
+	FILE *f;
+	char c[512];	
+	int jml=0;
+	f = fopen ("./Novel.txt", "r");
+	while(fgets(c,512,f) != NULL){
+		if(strcmp(c,kata[j]) != 1){
+			jml++;
+		}
+	}
 
-	snprintf(seek,sizeof(seek),"grep -o %s ./Novel.txt | wc -l",kata[j]);
-	system(seek);
+	printf("%s : %d\n",kata[j],jml);
 	j++;
 
 	status=1;
